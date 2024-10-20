@@ -9,6 +9,7 @@ import ThreeView from './Components/ThreeView'
 import '@react-three/fiber'
 import ExportSTL from './Components/ExportSTL'
 import ThreeViewOptions from './Components/ThreeViewOptions'
+import { Typography } from '@mui/material'
 
 function App() {
   const img = useImgStore((state) => state.img)
@@ -126,16 +127,19 @@ function App() {
         justifyContent: 'space-between',
         margin: 10
       }}>
-        <div>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'end'
+        }}>
           <span style={{
             fontFamily: "'Playwrite PE', cursive",
             fontSize: 30
-          }}><b>stroodle</b></span>
+          }}><b>xtroodle</b></span>
           <span style={{ width: 10, margin: 10 }}></span>
-          <span style={{
-            fontFamily: 'sans-serif',
-            fontSize: 12,
-          }}><i>doodle extruder</i></span>
+          <span style={{ margin: 2 }}><Typography><i>a doodle extruder</i></Typography></span>
+          <span style={{ width: 10, margin: 10 }}></span>
+          <span style={{ margin: 2 }}><Typography><i>© 2024 M. Baird</i></Typography></span>
         </div>
         <ExportSTL />
       </div>

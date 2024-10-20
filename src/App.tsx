@@ -18,7 +18,7 @@ function App() {
   const imgRef = React.useRef<HTMLImageElement>(null)
 
   const processContours = () => {
-    if (img && contourImgRef.current && imgRef.current && imgRef.current.width > 0) {
+    if (img && contourImgRef.current && imgRef.current && imgRef.current.width > 0 && imgRef.current.height > 0) {
       let src = cv.imread("img");
       let threshDst = new cv.Mat();
       let contourDst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC4);
@@ -77,7 +77,6 @@ function App() {
         flexDirection: 'row'
       }}>
         <div style={{
-          position: 'relative',
           padding: 10,
           margin: 10,
           borderRadius: 10,

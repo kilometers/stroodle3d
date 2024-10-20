@@ -88,6 +88,7 @@ export default function Three() {
 
             const extrudeGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
             extrudeGeometry.rotateZ(Math.PI);
+            extrudeGeometry.rotateY(Math.PI);
             const boundingBox = new THREE.Box3().setFromObject(new THREE.Mesh(extrudeGeometry));
             const center = boundingBox.getCenter(new THREE.Vector3());
             const zOffset = depth / 2 + (bevelEnabled ? bevelThickness : 0);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useMeshStore } from '../stores/threeStore';
+import { useMeshStore } from '../stores/meshStore';
 import * as THREE from 'three';
 import { useCvStore } from '../stores/cvStore';
 import { Canvas } from '@react-three/fiber';

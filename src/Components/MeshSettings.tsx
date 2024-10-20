@@ -1,5 +1,5 @@
 import { useCvStore } from '../stores/cvStore';
-import { useMeshStore } from '../stores/threeStore';
+import { useMeshStore } from '../stores/meshStore';
 import Slider from './Slider';
 
 export default function MeshSettings() {

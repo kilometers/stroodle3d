@@ -1,5 +1,5 @@
 import { STLExporter } from 'three/examples/jsm/Addons.js'
-import { useMeshStore } from '../stores/threeStore';
+import { useMeshStore } from '../stores/meshStore';
 import * as THREE from 'three';
 
 export default function ExportSTL() {

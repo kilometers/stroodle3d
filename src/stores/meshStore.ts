@@ -33,7 +33,7 @@ export const useMeshStore = create<MeshStore>((set) => ({
     setMesh: (mesh: THREE.Mesh) => set({ mesh }),
     steps: 1,
     setSteps: (steps: number) => set({ steps }),
-    depth: 1.5,
+    depth: 5,
     setDepth: (depth: number) => set({ depth }),
     bevelEnabled: false,
     setBevelEnabled: (bevelEnabled: boolean) => set({ bevelEnabled }),

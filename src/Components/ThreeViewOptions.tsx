@@ -1,4 +1,4 @@
-import { useMeshStore } from '../stores/threeStore';
+import { useMeshStore } from '../stores/meshStore';
 
 export default function ThreeViewOptions() {
     const { showWireframe, setShowWireframe } = useMeshStore();

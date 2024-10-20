@@ -39,6 +39,7 @@ export default function RangeInput(props: SliderProps) {
                     min={props.min}
                     max={props.max}
                     step={props.step}
+                    //@ts-expect-error
                     onChange={(e, value) => props.setValue(value as number)}
                 />
             </div>

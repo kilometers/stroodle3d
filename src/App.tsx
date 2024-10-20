@@ -110,7 +110,9 @@ function App() {
         }}>
           <div style={{
             width: 500,
-            height: 500
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
           }}>
             <ThreeView />
             <ThreeViewOptions/>
@@ -121,7 +123,8 @@ function App() {
       <div style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        margin: 10
       }}>
         <div>
           <span style={{

@@ -135,7 +135,7 @@ function App() {
           <span style={{
             fontFamily: "'Playwrite PE', cursive",
             fontSize: 30
-          }}><b>xtroodle</b></span>
+          }}><b>stroodle</b></span>
           <span style={{ width: 10, margin: 10 }}></span>
           <span style={{ margin: 2 }}><Typography><i>a doodle extruder</i></Typography></span>
           <span style={{ width: 10, margin: 10 }}></span>

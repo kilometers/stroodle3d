@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMeshStore } from '../stores/threeStore';
 import * as THREE from 'three';
 import { useCvStore } from '../stores/cvStore';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Plane } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import WireframeMesh from './ExtrudeMesh';
 
 export default function Three() {
@@ -12,7 +12,7 @@ export default function Three() {
     } = useMeshStore();
     const { contours } = useCvStore();
     const [initialized, setInitialized] = useState(false);
-    const [camera, setCamera] = useState<THREE.PerspectiveCamera>(new THREE.PerspectiveCamera (90, 1, 0.1, 1000));
+    const [camera] = useState<THREE.PerspectiveCamera>(new THREE.PerspectiveCamera (90, 1, 0.1, 1000));
 
     useEffect(() => {
         if(!initialized) {

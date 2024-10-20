@@ -1,7 +1,7 @@
 import { useImgStore } from '../stores/imgStore';
 
 export default function LoadImage() {
-    const {img, setImg} = useImgStore();
+    const {setImg} = useImgStore();
     
     return (
         <div>

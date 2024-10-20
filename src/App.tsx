@@ -77,8 +77,7 @@ function App() {
         flexDirection: 'row'
       }}>
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
+          position: 'relative',
           padding: 10,
           margin: 10,
           borderRadius: 10,
@@ -87,16 +86,18 @@ function App() {
           borderStyle: 'solid'
         }}>
           <LoadImage />
-          <div style={{ width: 250 }}>
+          <div style={{ width: 250, position: 'absolute' }}>
             <img 
               ref={imgRef} 
               id="img" 
               src={img} 
-              style={{ width: '100%', height: '100%' }} 
+              style={{ width: '100%', height: '100%', opacity: 0.3 }} 
               onLoad={processContours} />
           </div>
+          <div style={{ position: 'absolute' }}>
 
           <canvas ref={contourImgRef}/>
+            </div>
         </div>
         <div style={{
           display: 'flex',
@@ -125,17 +126,15 @@ function App() {
       }}>
         <div>
           <span style={{
-            fontFamily: 'sans-serif',
-            fontSize: 30,
-          }}><b>Stroodle</b></span>
+            fontFamily: "'Playwrite PE', cursive",
+            fontSize: 30
+          }}><b>stroodle</b></span>
           <span style={{ width: 10, margin: 10 }}></span>
           <span style={{
             fontFamily: 'sans-serif',
             fontSize: 12,
-          }}><i>extrudes doodles</i></span>
+          }}><i>doodle extruder</i></span>
         </div>
-        
-
         <ExportSTL />
       </div>
     </>

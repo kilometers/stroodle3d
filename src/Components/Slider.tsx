@@ -1,3 +1,5 @@
+import { Slider, Typography } from '@mui/material';
+
 type SliderProps = {
     label: string;
     min: number;
@@ -8,7 +10,7 @@ type SliderProps = {
     disabled?: boolean;
 }
 
-export default function Slider(props: SliderProps) {
+export default function RangeInput(props: SliderProps) {
     return (
         <>
             <div style={{
@@ -23,7 +25,7 @@ export default function Slider(props: SliderProps) {
                     justifyContent: 'space-between',
                     whiteSpace: 'nowrap'
                 }}>
-                    <div>{props.label}:</div>
+                    <Typography variant='body1'>{props.label}</Typography>
                     <input 
                         disabled={props.disabled}
                         style={{ width: 60 }}
@@ -31,14 +33,13 @@ export default function Slider(props: SliderProps) {
                         value={props.value} 
                         onChange={(e) => props.setValue(parseFloat(e.target.value))} />
                 </div>
-                <input
+                <Slider 
                     disabled={props.disabled}
-                    type="range"
+                    value={props.value}
                     min={props.min}
                     max={props.max}
-                    value={props.value}
                     step={props.step}
-                    onChange={(e) => props.setValue(parseFloat(e.target.value))}
+                    onChange={(e, value) => props.setValue(value as number)}
                 />
             </div>
         </>

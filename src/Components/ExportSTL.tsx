@@ -1,6 +1,7 @@
 import { STLExporter } from 'three/examples/jsm/Addons.js'
 import { useMeshStore } from '../stores/meshStore';
 import * as THREE from 'three';
+import { Button } from '@mui/material'
 
 export default function ExportSTL() {
     const { geometry } = useMeshStore();
@@ -24,7 +25,12 @@ export default function ExportSTL() {
 
     return (
         <div>
-            <button onClick={handleExportSTL}>Export STL</button>
+            <Button 
+                variant='contained'
+                onClick={handleExportSTL}
+                size='large'>
+                    <b>Export STL</b>
+            </Button>
         </div>
     )
 }

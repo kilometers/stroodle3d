@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.4",
     "@react-three/drei": "^9.114.6",
     "@react-three/fiber": "^8.17.10",
     "@techstark/opencv-js": "^4.10.0-release.1",

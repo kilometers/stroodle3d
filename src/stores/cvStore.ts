@@ -15,6 +15,6 @@ export const useCvStore = create<CvState>((set) => ({
     setThreshold: (threshold: number) => set({ threshold }),
     contours: null,
     setContours: (contours: MatVector) => set({ contours }),
-    smoothing: 0.0028,
+    smoothing: 0,
     setSmoothing: (smoothing: number) => set({ smoothing }),
 }));

@@ -25,7 +25,7 @@ export default function MeshSettings() {
             margin: 10
         }}>
             <RangeInput label="Threshold" min={0} max={255} value={threshold} setValue={setThreshold} />
-            <RangeInput label="Smoothing" min={0.001} max={0.01} step={0.0001} value={smoothing} setValue={setSmoothing} />
+            <RangeInput label="Smoothing" min={0} max={0.01} step={0.0001} value={smoothing} setValue={setSmoothing} />
             <RangeInput label="Scale" min={0.02} max={1} step={0.0001} value={scale} setValue={setScale} />
             <RangeInput label="Steps" min={1} max={10} value={steps} setValue={setSteps} />
             <RangeInput label="Depth (mm)" min={.4} max={50} step={0.01} value={depth} setValue={setDepth} />

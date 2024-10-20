@@ -40,7 +40,7 @@ export default function MeshSettings() {
                     justifyContent: 'space-between',
                     alignItems: 'center'
                 }}>
-                    <Typography>Bevel Enabled</Typography>
+                    <Typography>Bevel {bevelEnabled ? "On" : "Off"}</Typography>
                     <Checkbox
                         checked={bevelEnabled}
                         onChange={(e) => setBevelEnabled(e.target.checked)}

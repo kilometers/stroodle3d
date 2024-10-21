@@ -8,11 +8,11 @@ import { pink } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: pink[400]
+      main: pink[400],
     },
     secondary: {
       main: '#ff0000'
-    }
+    },
   }
 });
 

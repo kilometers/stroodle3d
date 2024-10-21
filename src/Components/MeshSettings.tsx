@@ -5,7 +5,7 @@ import { Checkbox, Typography, Card } from '@mui/material';
 import { pink } from '@mui/material/colors';
 
 export default function MeshSettings() {
-    const {threshold, setThreshold, smoothing, setSmoothing} = useCvStore();
+    const {threshold, setThreshold, smoothing, setSmoothing, blur, setBlur} = useCvStore();
     const { 
         scale, setScale, 
         bevelEnabled, setBevelEnabled,
@@ -14,7 +14,8 @@ export default function MeshSettings() {
         bevelSegments, setBevelSegments,
         bevelOffset, setBevelOffset,
         steps, setSteps,
-        depth, setDepth
+        depth, setDepth,
+        extrusionMode
     } = useMeshStore();
     
     return (
@@ -25,11 +26,12 @@ export default function MeshSettings() {
             margin: 10
         }}>
             <RangeInput label="Threshold" min={0} max={255} value={threshold} setValue={setThreshold} />
+            <RangeInput label="Blur" min={1} max={20} step={1} value={blur} setValue={setBlur} />
             <RangeInput label="Smoothing" min={0} max={0.01} step={0.0001} value={smoothing} setValue={setSmoothing} />
             <RangeInput label="Scale" min={0.02} max={1} step={0.0001} value={scale} setValue={setScale} />
-            <RangeInput label="Steps" min={1} max={10} value={steps} setValue={setSteps} />
+            {/* <RangeInput label="Steps" min={1} max={10} value={steps} setValue={setSteps} /> */}
             <RangeInput label="Depth (mm)" min={.4} max={50} step={0.01} value={depth} setValue={setDepth} />
-            <Card style={{
+            {extrusionMode === "extrude" && <Card style={{
                 padding: 15,
                 backgroundColor: bevelEnabled ? pink[900] : 'lightgrey',
                 color: bevelEnabled ? 'white' : 'black',
@@ -51,9 +53,8 @@ export default function MeshSettings() {
                 <RangeInput label="Segments" disabled={!bevelEnabled} min={1} max={10} value={bevelSegments} setValue={setBevelSegments} />
                 <RangeInput label="Offset" disabled={!bevelEnabled} min={-3} max={3} step={0.0001} value={bevelOffset} setValue={setBevelOffset} />
         
-            </Card>
-
-          
-             </div>
+            </Card>}
+            {extrusionMode === "lathe" && "Coming soon"}
+        </div>
     );
 }

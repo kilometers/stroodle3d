@@ -8,6 +8,8 @@ type CvState = {
     setContours: (contours: MatVector) => void;
     smoothing: number;
     setSmoothing: (smoothing: number) => void;
+    blur: number;
+    setBlur: (blur: number) => void;
 }
 
 export const useCvStore = create<CvState>((set) => ({
@@ -17,4 +19,6 @@ export const useCvStore = create<CvState>((set) => ({
     setContours: (contours: MatVector) => set({ contours }),
     smoothing: 0,
     setSmoothing: (smoothing: number) => set({ smoothing }),
+    blur: 4,
+    setBlur: (blur: number) => set({ blur }),
 }));

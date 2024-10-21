@@ -24,6 +24,8 @@ type MeshStore = {
     setGeometry: (geometry: THREE.ExtrudeGeometry) => void;
     showWireframe: boolean;
     setShowWireframe: (showWireframe: boolean) => void;
+    extrusionMode: "extrude" | "lathe";
+    setExtrusionMode: (extrusionMode: "extrude" | "lathe") => void;
 }
 
 export const useMeshStore = create<MeshStore>((set) => ({
@@ -37,9 +39,9 @@ export const useMeshStore = create<MeshStore>((set) => ({
     setDepth: (depth: number) => set({ depth }),
     bevelEnabled: false,
     setBevelEnabled: (bevelEnabled: boolean) => set({ bevelEnabled }),
-    bevelThickness: 0.2,
+    bevelThickness: 0.7,
     setBevelThickness: (bevelThickness: number) => set({ bevelThickness }),
-    bevelSize: 0.5,
+    bevelSize: 0.8,
     setBevelSize: (bevelSize: number) => set({ bevelSize }),
     bevelSegments: 1,
     setBevelSegments: (bevelSegments: number) => set({ bevelSegments }),
@@ -48,5 +50,7 @@ export const useMeshStore = create<MeshStore>((set) => ({
     geometry: null,
     setGeometry: (geometry: THREE.ExtrudeGeometry) => set({ geometry }),
     showWireframe: false,
-    setShowWireframe: (showWireframe: boolean) => set({ showWireframe })
+    setShowWireframe: (showWireframe: boolean) => set({ showWireframe }),
+    extrusionMode: "extrude",
+    setExtrusionMode: (extrusionMode: "extrude" | "lathe") => set({ extrusionMode }),
 }));

@@ -13,7 +13,7 @@ export default function MeshSettings() {
         bevelSize, setBevelSize,
         bevelSegments, setBevelSegments,
         bevelOffset, setBevelOffset,
-        steps, setSteps,
+        // steps, setSteps,
         depth, setDepth,
         extrusionMode
     } = useMeshStore();

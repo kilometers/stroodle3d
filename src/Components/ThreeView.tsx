@@ -10,7 +10,7 @@ export default function Three() {
     const { geometry, setGeometry, showWireframe,
         scale, steps, depth, bevelEnabled, bevelThickness, bevelSize, bevelSegments, bevelOffset
     } = useMeshStore();
-    const { contours, smoothing } = useCvStore();
+    const { contours } = useCvStore();
     const [initialized, setInitialized] = useState(false);
     const [camera] = useState<THREE.PerspectiveCamera>(new THREE.PerspectiveCamera (90, 1, 0.1, 1000));
 

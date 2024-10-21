@@ -10,7 +10,7 @@ export default function Three() {
     const { geometry, setGeometry, showWireframe,
         scale, steps, depth, bevelEnabled, bevelThickness, bevelSize, bevelSegments, bevelOffset
     } = useMeshStore();
-    const { contours } = useCvStore();
+    const { contours, smoothing } = useCvStore();
     const [initialized, setInitialized] = useState(false);
     const [camera] = useState<THREE.PerspectiveCamera>(new THREE.PerspectiveCamera (90, 1, 0.1, 1000));
 
@@ -40,7 +40,35 @@ export default function Three() {
             for(let i = 0; i < contours.get(c).size().height; i++) {
                 let x = contours.get(c).data32S[i * 2];
                 let y = contours.get(c).data32S[i * 2 + 1];
-                newContour.push(new THREE.Vector2(x * scale, y * scale));
+
+                // let prevX = contours.get(c).data32S[(i * 2 - 2 + contours.get(c).size().height) % contours.get(c).size().height];
+                // let prevY = contours.get(c).data32S[(i * 2 - 1 + contours.get(c).size().height) % contours.get(c).size().height];
+                // let nextX = contours.get(c).data32S[((i * 2 + 2) % contours.get(c).size().height)];
+                // let nextY = contours.get(c).data32S[((i * 2 + 3) % contours.get(c).size().height)];
+
+                let contourSize = contours.get(c).size().height; // Total pairs of (x, y)
+                let prevX = contours.get(c).data32S[((i - 1 + contourSize) % contourSize) * 2];
+                let prevY = contours.get(c).data32S[((i - 1 + contourSize) % contourSize) * 2 + 1];
+                let nextX = contours.get(c).data32S[((i + 1) % contourSize) * 2];
+                let nextY = contours.get(c).data32S[((i + 1) % contourSize) * 2 + 1];
+
+                let xAvg = (prevX + nextX) / 2;
+                let yAvg = (prevY + nextY) / 2;
+
+                let xDiff = x - xAvg;
+                let yDiff = y - yAvg;
+
+                let k = 0.01;
+                let xFactor = 0.5 / (1 + k * Math.abs(xDiff));
+                let yFactor = 0.5 / (1 + k * Math.abs(yDiff));
+
+                // console.log(xDiff, xFactor, yDiff, yFactor);
+
+                let xSmooth = x - xDiff * xFactor;
+                let ySmooth = y - yDiff * yFactor;
+
+                newContour.push(new THREE.Vector2(xSmooth * scale, ySmooth * scale));
+                
                 if(x < minX) {
                     minX = x;
                 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 
-export default function WireframeMesh(props: {geometry: THREE.ExtrudeGeometry | undefined}) {    
+export default function WireframeMesh(props: {geometry: THREE.BufferGeometry | undefined}) {    
 
     const wireframe = React.useMemo(() => {
         return new THREE.WireframeGeometry(props.geometry);

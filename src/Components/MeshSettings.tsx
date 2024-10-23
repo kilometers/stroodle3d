@@ -14,7 +14,10 @@ export default function MeshSettings() {
         bevelSegments, setBevelSegments,
         bevelOffset, setBevelOffset,
         depth, setDepth,
-        extrusionMode
+        extrusionMode,
+        latheSegments, setLatheSegments,
+        latheRotation, setLatheRotation,
+        latheXOffset, setLatheXOffset
     } = useMeshStore();
     
     return (
@@ -53,7 +56,23 @@ export default function MeshSettings() {
                 <RangeInput label="Offset" disabled={!bevelEnabled} min={-3} max={3} step={0.0001} value={bevelOffset} setValue={setBevelOffset} />
         
             </Card>}
-            {extrusionMode === "lathe" && "Coming soon"}
+            {extrusionMode === "lathe" && <Card style={{
+                padding: 15,
+                backgroundColor: pink[900],
+                color: 'white',
+            }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <Typography>Lathe settings</Typography>
+                </div>
+                <RangeInput label="Segments" min={0} max={50} step={1} value={latheSegments} setValue={setLatheSegments} />
+                <RangeInput label="Rotation" min={0.5} max={360} step={.05} value={latheRotation} setValue={setLatheRotation} />
+                <RangeInput label="Radius Offset" min={-50} max={50} value={latheXOffset} setValue={setLatheXOffset} />
+            </Card>}
         </div>
     );
 }

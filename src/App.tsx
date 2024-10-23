@@ -82,7 +82,7 @@ function App() {
 
   React.useEffect(() => {
     processContours();
-  }, [img, threshold, smoothing, blur, imgRef.current]); 
+  }, [img, threshold, smoothing, blur, extrusionMode, imgRef.current]); 
 
   return (
     <>
@@ -112,7 +112,7 @@ function App() {
               style={{ width: '100%', height: '100%', opacity: 0.3, display: img ? 'block' : 'none' }} 
               onLoad={processContours} />
           </div>
-          <div style={{ position: 'absolute' }}>
+          <div style={{ position: 'absolute', opacity: 0.5 }}>
             <canvas ref={thresholdImgRef}/>
           </div>
           <div style={{ position: 'absolute' }}>

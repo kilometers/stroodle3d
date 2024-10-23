@@ -20,12 +20,21 @@ type MeshStore = {
     setBevelSegments: (bevelSegments: number) => void;
     bevelOffset: number;
     setBevelOffset: (bevelOffset: number) => void;
-    geometry: THREE.ExtrudeGeometry | null;
-    setGeometry: (geometry: THREE.ExtrudeGeometry) => void;
+    geometry: THREE.BufferGeometry | null;
+    setGeometry: (geometry: THREE.BufferGeometry) => void;
+    // setExtrudeGeometry: (geometry: THREE.ExtrudeGeometry) => void;
+    // setLatheGeometry: (geometry: THREE.BufferGeometry) => void;
     showWireframe: boolean;
     setShowWireframe: (showWireframe: boolean) => void;
     extrusionMode: "extrude" | "lathe";
     setExtrusionMode: (extrusionMode: "extrude" | "lathe") => void;
+    // Lathe settings
+    latheSegments: number;
+    setLatheSegments: (latheSegments: number) => void;
+    latheRotation: number;
+    setLatheRotation: (latheRotation: number) => void;
+    latheXOffset: number;
+    setLatheXOffset: (latheXOffset: number) => void;
 }
 
 export const useMeshStore = create<MeshStore>((set) => ({
@@ -48,9 +57,18 @@ export const useMeshStore = create<MeshStore>((set) => ({
     bevelOffset: 0,
     setBevelOffset: (bevelOffset: number) => set({ bevelOffset }),
     geometry: null,
-    setGeometry: (geometry: THREE.ExtrudeGeometry) => set({ geometry }),
+    setGeometry: (geometry: THREE.BufferGeometry) => set({ geometry }),
+    // setExtrudeGeometry: (geometry: THREE.ExtrudeGeometry) => set({ geometry: { extrude: geometry, lathe: undefined } }),
+    // setLatheGeometry: (geometry: THREE.BufferGeometry) => set({ geometry: { extrude: undefined, lathe: geometry } }),
     showWireframe: false,
     setShowWireframe: (showWireframe: boolean) => set({ showWireframe }),
     extrusionMode: "extrude",
     setExtrusionMode: (extrusionMode: "extrude" | "lathe") => set({ extrusionMode }),
+    // Lathe settings
+    latheSegments: 15,
+    setLatheSegments: (latheSegments: number) => set({ latheSegments }),
+    latheRotation: 360,
+    setLatheRotation: (latheRotation: number) => set({ latheRotation }),
+    latheXOffset: 0,
+    setLatheXOffset: (latheXOffset: number) => set({ latheXOffset }),
 }));
